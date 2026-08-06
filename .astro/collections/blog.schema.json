@@ -1,80 +1,69 @@
 {
-  "$ref": "#/definitions/blog",
-  "definitions": {
-    "blog": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "pubDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "description": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "image": {
       "type": "object",
       "properties": {
-        "title": {
-          "type": "string"
-        },
-        "pubDate": {
+        "src": {
           "anyOf": [
             {
-              "type": "string",
-              "format": "date-time"
+              "type": "string"
             },
             {
-              "type": "string",
-              "format": "date"
-            },
-            {
-              "type": "integer",
-              "format": "unix-time"
+              "type": "null"
             }
           ]
         },
-        "description": {
-          "type": "string"
-        },
-        "author": {
-          "type": "string"
-        },
-        "excerpt": {
-          "type": "string"
-        },
-        "image": {
-          "type": "object",
-          "properties": {
-            "src": {
-              "type": [
-                "string",
-                "null"
-              ]
+        "alt": {
+          "anyOf": [
+            {
+              "type": "string"
             },
-            "alt": {
-              "type": [
-                "string",
-                "null"
-              ]
+            {
+              "type": "null"
             }
-          },
-          "required": [
-            "src",
-            "alt"
-          ],
-          "additionalProperties": false
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "$schema": {
-          "type": "string"
+          ]
         }
       },
       "required": [
-        "title",
-        "pubDate",
-        "description",
-        "author",
-        "excerpt",
-        "image",
-        "tags"
-      ],
-      "additionalProperties": false
+        "src",
+        "alt"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "$schema": {
+      "type": "string"
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "title",
+    "pubDate",
+    "description",
+    "author",
+    "excerpt",
+    "image",
+    "tags"
+  ]
 }
